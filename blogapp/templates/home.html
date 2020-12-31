@@ -25,3 +25,22 @@
 		{% endif %}
 	{% endfor %}
 {% endblock content %}
+
+{% block content_users %}
+	<div class="col-md-4">
+		<div class="content-section">
+			<h3>Our Top Users</h3>
+			<p class='text-muted'>
+				<ul class="list-group">
+					{% for user in topusers %}
+						<li class="list-group-item bg-steel" style="background-color: #AEB6BF">
+							<img class="rounded-circle users-img" src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}">
+							<a class="mr-2" href="{{ url_for('users.user_posts', username=user.username) }}">{{ user.username }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</p>
+		</div>
+	</div>
+	
+{% endblock content_users %}
